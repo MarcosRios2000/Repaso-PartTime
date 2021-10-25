@@ -7,7 +7,13 @@ function amoungUs(tripulacion, impostor){
     //     impostor = ["azul"]
     //     inocentes = ["verde"]
     //Tu codigo:
-    
+    var nuevoArray = []
+    for(x=0;x<tripulacion.length;x++){
+      if(tripulacion[x] !== impostor){
+        nuevoArray.push(tripulacion[x])
+      }
+    }
+   return nuevoArray
 }
 
 function grupalOrIndividual(deportes, modoDeJuego){
@@ -23,7 +29,12 @@ function grupalOrIndividual(deportes, modoDeJuego){
     //     respuesta si se pasa "grupal" por parametro: ["football"]
     //     respuesta si se pasa "individual" por parametro : ["ajedrez"]
     // Tu código:
- 
+    var nuevoArray = []
+  for(x=0;x<deportes.length;x++){
+    if(deportes[x].modo === modoDeJuego){
+      nuevoArray.push(deportes[x].nombre)
+    }
+  } return nuevoArray
 }
 
 function numSeguido(numeros){
@@ -33,7 +44,12 @@ function numSeguido(numeros){
     // Ej: numeros = [1, 2, 3, 40, 2, 2, 0]
     // respuesta: true
     // Tu código:
-        
+    for(x=0;x<numeros.length-1;x++){
+        if(numeros[x]===numeros[x+1]){
+          return true
+        } 
+       }
+      return false
 }
 
 function manejoDeArreglos(carrito){
@@ -55,7 +71,18 @@ function manejoDeArreglos(carrito){
     // ]
     // Respuesta: 4500
     // Tu código:
-
+    var primerInstancia = carrito.map(function(elementos){
+        return elementos.precio
+      })
+      
+      var segundaInstancia = primerInstancia.filter(function(elementos){
+        return elementos>500
+      })
+      
+      var total = segundaInstancia.reduce(function(acumulador, elementos){
+        return acumulador + elementos
+      })
+      return total
 }
 
 function premios(aulas){
@@ -71,6 +98,14 @@ function premios(aulas){
   //                                                       ]
   // resuesta: ["1a"]
   //Tu código:
+  var nuevoArray = []
+  for(x=0;x<aulas.length;x++){
+    if(aulas[x][1].abanderado===true){
+      nuevoArray.push(aulas[x][0] + aulas[x][1].division)
+    }
+  }
+ 
+  return nuevoArray
 
 }
   
@@ -79,8 +114,13 @@ function invertirString(string){
     // pero invertido
     //Ej: "egnellahClEobeurpAoy" => "yoAprueboElChallenge"
     //Tu código:
-    
+      var result = "" 
+      for(x=string.length-1;x>-1;x--){
+       result = result + string[x]
+      }   
+      return result
 }
+
 
 //-----------EXITOS EN EL CHALLENGE!!!!!!!!!!!!!!!!!!
 // No modificar nada debajo de esta línea
